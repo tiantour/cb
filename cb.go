@@ -24,7 +24,7 @@ func init() {
 
 	cluster := gocql.NewCluster(c.IP...)
 	cluster.Keyspace = c.Keyspace
-	cluster.Consistency = gocql.Consistency(0)
+	cluster.Consistency = gocql.One
 	cluster.NumConns = runtime.NumCPU()
 	session, err = cluster.CreateSession()
 	if err != nil {
